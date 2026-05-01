@@ -35,7 +35,7 @@ exports.register = async (req,res) => {
 
 };
 
-
+// Login d'un utilisateur
 exports.login = async(req,res) => {
 try {
         const {code_utilisateur,mdp_utilisateur} = req.body;

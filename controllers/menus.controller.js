@@ -9,7 +9,7 @@ exports.getMenus = async (req, res) => {
     res.status(200).json(menus);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'impossible de charges les données Menus' });
+    res.status(500).json({ error: 'impossible de charger les données Menus' });
   }
 };
 
@@ -22,9 +22,11 @@ exports.getMenu = async (req, res) => {
       return res.status(400).json({ error: "ID invalide" });
     }
 
+// !!!! Question Aymerik = comment faire pour afficher le détail des produits ? !!!!
+
     const menu = await menuModel
       .findById(id_menu)
-      .select("code_menu prix_menu");
+      .select("code_menu designation_menu produits_menu prix_menu ");
 
     if (!menu) {
       return res.status(404).json({ error: "Menu inexistant" });
@@ -49,7 +51,7 @@ exports.createMenu = async(req, res) => {
       code_menu,
       designation_menu,
       prix_menu,
-
+      produits_menu,
     });
     const savedMenu = await menu.save();
     res.status(201).json(savedMenu);

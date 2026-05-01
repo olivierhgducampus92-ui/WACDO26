@@ -5,7 +5,9 @@ const produitsSchema = new mongoose.Schema({
     disponibilite_produit:{type:Boolean},
     image_produit:{type:String},
     nom_produit:{type:String},
-    prix_produit:{type:Float16Array},
-    qte_produit:{type:Int16Array},
+    prix_produit:{type:Number},
+    qte_produit:{type:Number},
     type_qte: {type:String},
-})
+    categorie: {type:String},
+});
+module.exports = mongoose.model("produits",produitsSchema);

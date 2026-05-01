@@ -19,16 +19,20 @@ app.use(express.json());
 
 // API Fonctionnelles
 
+// Permet de retourner la liste des menus avec les codes ID des produits du menu (manque le détail des produits)
 app.use('/api/menus', require('./routes/listemenus.routes'));
 
+// Permet de retourner le contenu d'un menu avec les codes ID des produits du menu (manque le détail des produits)
 app.use('/api/menu', require('./routes/consultationmenu.routes'));
 
+// REGISTER : Permet de créer un utilisateur en renvoyant son code ID et confirmation de création
+// LOGIN : Permet de retourner le jeton pour un utilisateur existant avec bon user et mdp
 app.use('/api/utilisateurs', require('./routes/utilisateurs.routes'));
 
-// API à développer
-
+// Permet de retourner la liste des produits qui sont la base des menus (manque le tri par catégorie et le détail des ingrédients)
 app.use('/api/produits', require('./routes/listeproduits.routes'));
 
+// Permet de retourner le détail d'une commande
 app.use('/api/commandes', require('./routes/contenucommande.routes'));
 
 // lancement du serveur :
