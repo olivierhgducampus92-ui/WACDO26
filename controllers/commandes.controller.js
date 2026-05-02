@@ -1,7 +1,7 @@
-const Model = require("../models/commandes.model");
+const CommandesModel = require("../models/commandes.model");
 const mongoose = require("mongoose");
 
-// Consultation d'un Commande à partir d'un ID commande fourni
+// Consultation d'une Commande à partir d'un ID commande fourni
 exports.getCommandes = async (req, res) => {
   try {
     const id_commandes = req.params.id;
@@ -12,10 +12,10 @@ exports.getCommandes = async (req, res) => {
 
 // !!!! Question Aymerik = comment faire pour afficher le détail de la commande ? !!!!
 
-    const commande = await commandesModel
+    const commande = await CommandesModel
       .findById(id_commandes)
-      .select("code_client code_commande date_heure_cmde etat_commande prix_total_cmde");
-     // .select("code_client code_commande date_heure_cmde etat_commande prix_total_cmde menus_cmde produits_cmde");
+      //.select("code_client code_commande date_heure_cmde etat_commande prix_total_cmde");
+      .select("code_client code_commande date_heure_cmde etat_commande prix_total_cmde menus_cmde produits_cmde");
 
     if (!commande) {
       return res.status(404).json({ error: "Commande inexistante" });
