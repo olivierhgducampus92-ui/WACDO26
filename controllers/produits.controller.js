@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 //liste des produits
 exports.getProduits = async (req, res) => {
   try {
-    const produits = await produitModel.find();
+    const produits = await produitModel.find().sort({prix_produit:1,disponibilite_produit:-1});
     res.status(200).json(produits);
   } catch (err) {
     console.error(err);

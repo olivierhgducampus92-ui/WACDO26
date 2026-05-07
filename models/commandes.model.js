@@ -7,12 +7,14 @@ const commandesSchema = new mongoose.Schema({
     prix_total_cmde:{type:Number,required:true},
     menus_cmde : [
         {
+            _id: false,
             menu_id: {type:mongoose.Schema.Types.ObjectId, ref: "menus", required: true},
             qte: {type: Number, required: true},
         }
                  ],
     produits_cmde : [
         {
+            _id: false,
             produit_id: {type:mongoose.Schema.Types.ObjectId, ref: "produits", required: true},
             qte: {type: Number, required: true},
         }

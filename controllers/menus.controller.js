@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 //liste des menus
 exports.getMenus = async (req, res) => {
   try {
-    const menus = await menuModel.find();
+    // const menus = await menuModel.find().populate("produits_menu");
+    const menus = await menuModel.find().populate({path:"produits_menu",select:"description_produit code_produit"});
     res.status(200).json(menus);
   } catch (err) {
     console.error(err);
@@ -26,7 +27,7 @@ exports.getMenu = async (req, res) => {
 
     const menu = await menuModel
       .findById(id_menu)
-      .select("code_menu designation_menu produits_menu prix_menu ");
+      .select("code_menu designation_menu produits_menu prix_menu produits_menu");
 
     if (!menu) {
       return res.status(404).json({ error: "Menu inexistant" });

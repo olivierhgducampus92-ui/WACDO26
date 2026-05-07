@@ -3,6 +3,11 @@ const menusSchema = new mongoose.Schema({
     code_menu:{type:String,required:true,unique:true},
     designation_menu:{type:String,required:true},
     prix_menu:{type:Number,required:true},
-    //contenu_menu : [{type:String}],
+    produits_menu : [
+            {
+                _id: false,
+                type:mongoose.Schema.Types.ObjectId, ref: "produits", required: true
+            }
+                     ],
 });
 module.exports = mongoose.model("menus",menusSchema);
