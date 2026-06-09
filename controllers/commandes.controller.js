@@ -9,9 +9,6 @@ exports.getCommandes = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(id_commandes)) {
       return res.status(400).json({ error: "ID commande invalide" });
     }
-
-// !!!! Question Aymerik = comment faire pour afficher les libellés des menus et produits ? !!!!
-
     const commande = await CommandesModel
       .findById(id_commandes)
       .select("code_client code_commande date_heure_cmde etat_commande prix_total_cmde menus_cmde produits_cmde");
