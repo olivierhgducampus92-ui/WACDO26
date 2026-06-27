@@ -1,4 +1,5 @@
 // APP WACDO - projet etude GDU
+// Oral de présentation du 04 07 2026 12h
 
 // On va avoir besoin de l'application Express
 const express = require('express');
