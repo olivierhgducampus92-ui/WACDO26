@@ -18,7 +18,7 @@ app.use(express.json());
 // pour récupération de la liste des xxxx
 // GET .. Route puis Fonction appliquée (requete et réponse)
 
-// API Fonctionnelles
+// API demandées pour examen oral du 04 07 2026
 
 // Permet de retourner la liste des menus avec les codes ID des produits du menu (manque le détail des produits)
 app.use('/api/menus', require('./routes/listemenus.routes'));
