@@ -49,7 +49,7 @@ try {
 
         const isMdpCorrect = await bcrypt.compare(mdp_utilisateur, existeUtilisateur.mdp_utilisateur);
         if(!isMdpCorrect)
-            return res.status(400).json({message:'Utilisateur non valide'});
+            return res.status(400).json({message:'Mot de passe non valide'});
         const token = jwt.sign(
             {userID:existeUtilisateur._id},
             'CLEF_SECRETE_A_NE_PAS_DIVULGUER',
